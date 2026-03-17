@@ -1,0 +1,109 @@
+/* Card form */
+.card {
+  border: 1px solid #e5e7eb;
+  width: 100%;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15) !important;
+  background: #ffffff;
+}
+
+/* Heading */
+.container h2 {
+  font-weight: 700;
+  width: 100%;
+  color: #01050e;
+  margin-bottom: 18px;
+}
+.form-label {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  padding: 8px 10px;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+.table {
+  margin-bottom: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table thead.table-light {
+  background: linear-gradient(135deg, #0d6efd, #0d6efd);
+  color: #f9fafb;
+}
+
+.table thead th {
+  border: none;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 10px;
+}
+
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.table tbody td {
+  vertical-align: middle;
+  padding: 7px 10px;
+  font-size: 0.9rem;
+}
+
+/* Item total cell */
+.fw-bold.text-primary {
+  color: #0c7a11 !important;
+  font-size: 1rem;
+}
+/* Add item button */
+.btn-secondary.btn-sm {
+  border-radius: 999px;
+  font-size: 0.8rem;
+  padding: 4px 14px;
+}
+
+/* Remove (X) button */
+.btn-danger.btn-sm {
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+}
+
+/* Submit button */
+.btn-success.w-100 {
+  border-radius: 999px;
+  font-weight: 600;
+  padding-block: 10px;
+  font-size: 0.95rem;
+}
+
+/* Total amount text */
+.text-end h4 {
+  font-size: 1.1rem;
+  margin: 12px 0 0;
+}
+
+.text-success {
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .card {
+    padding: 16px !important;
+  }
+
+  .table thead {
+    font-size: 0.7rem;
+  }
+
+  .table tbody td {
+    padding: 6px 6px;
+  }
+}

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <a class="navbar-brand" routerLink="/">RetailApp</a>
+
+  <div class="navbar-collapse" id="navMenu">
+    <ul class="navbar-nav ms-auto align-items-center">
+      <!-- Not logged in -->
+      <ng-container *ngIf="!isLoggedIn">
+        <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/signup">Signup</a></li>
+      </ng-container>
+
+      <!-- logged in -->
+
+      <ng-container *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/PurchaseRequest">Purchase Requests</a>
+        </li>
+        <!-- SELLER ONLY -->
+        <li class="nav-item" *ngIf="userRole === 'Seller'">
+          <a class="nav-link" routerLink="/pr-create">Create PR</a>
+        </li>
+
+        <!-- ADMIN ONLY -->
+        <li class="nav-item" *ngIf="userRole === 'Admin'">
+          <a class="nav-link" routerLink="/admin">Admin Dashboard</a>
+        </li>
+
+        <!-- MANAGER ONLY -->
+        <li class="nav-item" *ngIf="userRole === 'Manager'">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <li class="nav-item" *ngIf="userRole === 'Manager'">
+          <a class="nav-link" routerLink="/stock">Stock</a>
+        </li>
+
+        <!-- navbar.component.html -->
+        <li class="nav-item" *ngIf="userRole === 'Manager'">
+          <a class="nav-link" routerLink="/reports"> <i class="bi bi-bar-chart"></i> Reports </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link logout-btn" (click)="logout()">Logout</a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>

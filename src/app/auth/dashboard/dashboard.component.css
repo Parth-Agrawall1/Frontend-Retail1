@@ -1,0 +1,60 @@
+.dashboard-container {
+  padding: 24px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 14px;
+  color: white;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.card h2 {
+  font-size: 28px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* Colors */
+.approved {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.pending {
+  background: linear-gradient(135deg, #dc3545, #b21f2d);
+}
+
+.cost {
+  background: linear-gradient(135deg, #007bff, #004085);
+}
+
+.stock {
+  background: linear-gradient(135deg, #fd7e14, #d35400);
+}
+
+.loading {
+  font-size: 16px;
+  color: #555;
+}

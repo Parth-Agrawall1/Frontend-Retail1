@@ -1,0 +1,27 @@
+<div class="dashboard-container">
+  <h2 class="title">Dashboard (This Month)</h2>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+
+  <div class="kpi-grid" *ngIf="!loading && dashboard">
+    <div class="card approved">
+      <span>Paid PRs</span>
+      <h2>{{ dashboard.approvedPRThisMonth }}</h2>
+    </div>
+
+    <div class="card pending">
+      <span>Pending Payments</span>
+      <h2>{{ dashboard.pendingPRs }}</h2>
+    </div>
+
+    <div class="card cost">
+      <span>Total Purchase Cost</span>
+      <h2>₹ {{ dashboard.totalPurchaseCostThisMonth | number }}</h2>
+    </div>
+
+    <div class="card stock">
+      <span>Low Stock Items</span>
+      <h2>{{ dashboard.lowStockItems }}</h2>
+    </div>
+  </div>
+</div>

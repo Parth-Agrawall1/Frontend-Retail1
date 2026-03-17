@@ -1,0 +1,35 @@
+.signup-container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input,
+select {
+  width: 100%;
+  margin: 8px 0 15px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #a0a0a0;
+}
+
+small {
+  color: red;
+}

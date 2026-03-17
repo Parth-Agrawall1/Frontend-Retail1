@@ -1,0 +1,132 @@
+<div class="container mt-4">
+  <h3>Manager Reports</h3>
+
+  <!-- REPORT BUTTONS -->
+  <div class="list-group mb-3">
+    <button
+      class="list-group-item list-group-item-action"
+      (click)="loadPRReport()"
+      [disabled]="loadingPR"
+    >
+      📄 Purchase Request Lifecycle
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      (click)="loadStockReport()"
+      [disabled]="loadingStock"
+    >
+      📦 Current Item Stock Report
+    </button>
+  </div>
+
+  <!-- PR REPORT -->
+  <div class="mt-4">
+    <div *ngIf="loadingPR" class="text-center p-4">
+      <div class="spinner-border" role="status"></div>
+      <p class="mt-2">Loading PR data...</p>
+    </div>
+
+    <table *ngIf="!loadingPR && prReport.length" class="table table-bordered table-striped">
+      <thead class="table-light">
+        <tr>
+          <th>PR No</th>
+          <th>Title</th>
+          <th>Items</th>
+          <th>Raised On</th>
+          <th>Approved On</th>
+          <th>Paid On</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (pr of prReport; track $index; let i = $index) {
+          <tr style="background-color: beige">
+            <td>{{ i + 1 }}.</td>
+            <td>{{ pr.title }}</td>
+            <td>{{ pr.itemCount }}</td>
+            <td>{{ pr.raisedAt | date: 'short' }}</td>
+            <td>{{ pr.approvedAt ? (pr.approvedAt | date: 'short') : '—' }}</td>
+            <td>{{ pr.paidAt ? (pr.paidAt | date: 'short') : '—' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- STOCK SUMMARY -->
+  <div class="mt-4">
+    <div *ngIf="loadingStock" class="text-center p-4">
+      <div class="spinner-border" role="status"></div>
+      <p class="mt-2">Loading stock data...</p>
+    </div>
+
+    <div
+      *ngIf="!loadingStock && stockSummary.length"
+      style="padding: 20px; margin: 20px 0; background-color: #dbd8d8b6"
+    >
+      <h5>Stock Summary ({{ stockSummary.length }} ITEMS)</h5>
+
+      <div *ngFor="let s of stockSummary; let i = index">
+        <!-- STOCK ROW -->
+        <div
+          style="
+            border: 1px solid black;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #ffffffad;
+          "
+          (click)="toggleBatchDetails(s)"
+        >
+          {{ i + 1 }}. <b>{{ s.itemName }}</b> | HSN: {{ s.hsnNumber }} | {{ s.totalQuantity }} pcs
+          | {{ s.batchCount }} batches
+        </div>
+
+        <!-- BATCH DETAILS (NOW INSIDE LOOP) -->
+        <div
+          *ngIf="selectedKey === s.itemName + '_' + s.hsnNumber"
+          style="margin: 10px 20px 20px 20px"
+        >
+          <table class="table table-bordered table-striped">
+            <thead class="table-light text-center">
+              <tr>
+                <th>Batch</th>
+                <th>Cost</th>
+                <th>MRP</th>
+                <th>Sale Price</th>
+                <th>Quantity</th>
+                <th>Stock Value</th>
+                <th>Arrived Date</th>
+              </tr>
+            </thead>
+            <tbody style="background-color: beige">
+              <tr *ngFor="let b of stockBatches">
+                <td>{{ b.batch }}</td>
+                <td>₹ {{ b.costPrice }}</td>
+                <td>₹ {{ b.mrp }}</td>
+                <td>₹ {{ b.salePrice != null ? b.salePrice : b.costPrice * 1.2 }}</td>
+                <td>{{ b.quantity }} pcs</td>
+                <td>₹ {{ b.quantity * b.costPrice | number }}</td>
+                <td>{{ b.arrivedDate ? (b.arrivedDate | date: 'short') : '—' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL EMPTY STATE (only if nothing loaded) -->
+  <div
+    class="mt-4 text-center text-muted p-5"
+    *ngIf="
+      !loadingPR &&
+      !loadingStock &&
+      !prReport.length &&
+      !stockSummary.length &&
+      !stockBatches.length
+    "
+  >
+    <i class="fas fa-chart-bar fa-3x mb-3 d-block"></i>
+    <h5>Select a report to view data</h5>
+  </div>
+</div>

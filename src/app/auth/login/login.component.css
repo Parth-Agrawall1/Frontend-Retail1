@@ -1,0 +1,90 @@
+.login-container {
+  width: 350px;
+  margin: 80px auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  font-size: 24px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+  outline: none;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background: #0056cc;
+}
+
+.error-message {
+  margin-top: 12px;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,93 @@
+<div class="pr-wrapper">
+  <div class="pr-card">
+    <div class="pr-header">
+      <h2>Purchase Requests</h2>
+
+      <div class="pr-filter">
+        <label for="statusFilter">Filter Status:</label>
+        <select id="statusFilter" [(ngModel)]="statusFilter" (change)="loadPRs()">
+          <option value="">All Status</option>
+          <option value="Draft">Draft</option>
+          <option value="Submitted">Submitted</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+          <option value="Paid">Paid</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pr-table-wrapper">
+      <table class="pr-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Owner</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pr of prs">
+            <td class="title-cell">{{ pr.title }}</td>
+            <td class="amount-cell">₹ {{ pr.amount | number }}</td>
+            <td>
+              <span class="badge" [ngClass]="getBadgeClass(pr.status)">
+                {{ pr.status }}
+              </span>
+            </td>
+            <td>{{ 'ID: ' + pr.ownerId }}</td>
+            <td class="actions-cell">
+              <!-- Seller actions (Draft only) -->
+              <button
+                *ngIf="pr.status?.trim().toLowerCase() === 'draft' && userRole === 'Seller'"
+                class="btn-sm btn-green"
+                (click)="submitPR(pr.id)"
+              >
+                Submit
+              </button>
+
+              <button
+                *ngIf="(pr.status || '').toLowerCase() === 'draft' && userRole === 'Seller'"
+                class="btn-sm btn-red"
+                (click)="deletePR(pr.id)"
+              >
+                Delete
+              </button>
+
+              <!-- Manager actions -->
+              <button
+                *ngIf="(pr.status || '').toLowerCase() === 'submitted' && userRole === 'Manager'"
+                class="btn-sm btn-green"
+                (click)="approvePR(pr.id)"
+              >
+                Approve
+              </button>
+
+              <button
+                *ngIf="(pr.status || '').toLowerCase() === 'submitted' && userRole === 'Manager'"
+                class="btn-sm btn-red"
+                (click)="rejectPR(pr.id)"
+              >
+                Reject
+              </button>
+
+              <!-- Finance actions -->
+              <button
+                *ngIf="(pr.status || '').toLowerCase() === 'approved' && userRole === 'Finance'"
+                class="btn-sm btn-amber"
+                (click)="markPaid(pr.id)"
+              >
+                Mark Paid
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="prs.length === 0">
+            <td colspan="5" class="empty-cell">No purchase requests found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

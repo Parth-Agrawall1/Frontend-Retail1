@@ -1,0 +1,154 @@
+.container.mt-4 {
+  margin-top: 2.5rem !important;
+}
+
+h2.mb-3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ---- Card‑like table ---- */
+
+.table {
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+  border-collapse: collapse;
+}
+
+/* Blue header strip */
+
+.table thead.table-dark {
+  background-color: #2563eb !important;
+}
+
+.table thead th {
+  border: none;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f9fafb;
+  font-weight: 600;
+}
+
+/* Body rows */
+
+.table tbody tr {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody td {
+  padding: 9px 14px;
+  font-size: 0.9rem;
+  color: #111827;
+  vertical-align: middle;
+}
+
+/* Role badge */
+
+.badge.bg-primary {
+  background-color: #e0ecff !important;
+  color: #1e40af !important;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+/* Change Role button */
+
+.btn-warning.btn-sm {
+  border-radius: 999px;
+  font-size: 0.78rem;
+  padding: 4px 14px;
+  font-weight: 500;
+  background-color: #f59e0b;
+  border-color: #d97706;
+  color: #111827;
+}
+
+.btn-warning.btn-sm:hover {
+  background-color: #d97706;
+  border-color: #b45309;
+}
+
+/* ---- Modal styles ---- */
+
+.modal-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px 22px 18px;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.modal-box h4 {
+  margin: 0 0 14px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Select and buttons inside modal */
+
+.modal-box .form-select {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+}
+
+.modal-box .form-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+}
+
+.modal-box .btn-success {
+  border-radius: 999px;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+.modal-box .btn-secondary {
+  border-radius: 999px;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  font-weight: 500;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .table thead th,
+  .table tbody td {
+    padding: 8px 8px;
+    font-size: 0.8rem;
+  }
+
+  .modal-box {
+    margin: 0 12px;
+    padding: 18px 16px 16px;
+  }
+}
