@@ -20,6 +20,7 @@
 .nav-link {
   color: #080808;
   margin-right: 15px;
+  margin-left: 15px;
   font-weight: 500;
   transition: 0.3s;
 }
@@ -52,7 +53,6 @@
   .navbar-nav {
     padding: 10px 0;
     border-radius: 5px;
-    flex-direction: row;
   }
 
   .nav-link {

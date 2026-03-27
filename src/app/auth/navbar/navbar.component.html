@@ -1,47 +1,46 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-  <a class="navbar-brand" routerLink="/">RetailApp</a>
-
   <div class="navbar-collapse" id="navMenu">
-    <ul class="navbar-nav ms-auto align-items-center">
+    <ul class="navbar-nav" style="display: flex">
+      <a class="navbar-brand" routerLink="/">RetailApp</a>
       <!-- Not logged in -->
       <ng-container *ngIf="!isLoggedIn">
-        <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/signup">Signup</a></li>
+        <div class="nav-item"><button class="nav-link" routerLink="/login">Login</button></div>
+        <div class="nav-item"><button class="nav-link" routerLink="/signup">Signup</button></div>
       </ng-container>
 
       <!-- logged in -->
 
       <ng-container *ngIf="isLoggedIn">
-        <li class="nav-item">
+        <div class="nav-item">
           <a class="nav-link" routerLink="/PurchaseRequest">Purchase Requests</a>
-        </li>
+        </div>
         <!-- SELLER ONLY -->
-        <li class="nav-item" *ngIf="userRole === 'Seller'">
+        <div class="nav-item" *ngIf="userRole === 'Seller'">
           <a class="nav-link" routerLink="/pr-create">Create PR</a>
-        </li>
+        </div>
 
         <!-- ADMIN ONLY -->
-        <li class="nav-item" *ngIf="userRole === 'Admin'">
+        <div class="nav-item" *ngIf="userRole === 'Admin'">
           <a class="nav-link" routerLink="/admin">Admin Dashboard</a>
-        </li>
+        </div>
 
         <!-- MANAGER ONLY -->
-        <li class="nav-item" *ngIf="userRole === 'Manager'">
+        <div class="nav-item" *ngIf="userRole === 'Manager'">
           <a class="nav-link" routerLink="/dashboard">Dashboard</a>
-        </li>
+        </div>
 
-        <li class="nav-item" *ngIf="userRole === 'Manager'">
+        <div class="nav-item" *ngIf="userRole === 'Manager'">
           <a class="nav-link" routerLink="/stock">Stock</a>
-        </li>
+        </div>
 
         <!-- navbar.component.html -->
-        <li class="nav-item" *ngIf="userRole === 'Manager'">
+        <div class="nav-item" *ngIf="userRole === 'Manager'">
           <a class="nav-link" routerLink="/reports"> <i class="bi bi-bar-chart"></i> Reports </a>
-        </li>
+        </div>
 
-        <li class="nav-item">
-          <a class="nav-link logout-btn" (click)="logout()">Logout</a>
-        </li>
+        <div class="nav-item">
+          <button class="nav-link logout-btn" (click)="logout()">Logout</button>
+        </div>
       </ng-container>
     </ul>
   </div>
