@@ -15,7 +15,10 @@ export class SignupComponent {
 
   roles = ['Admin', 'Manager', 'Seller', 'Finance'];
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -33,14 +36,14 @@ export class SignupComponent {
 
     this.authService.register(this.signupForm.value).subscribe({
       next: (res) => {
-        console.log("User registered:", res);
-        alert("User registered successfully");
+        console.log('User registered:', res);
+        alert('User registered successfully');
         this.signupForm.reset();
       },
       error: (err) => {
-        console.error("Registration error:", err);
-        alert(err.error || "Registration failed");
-      }
+        console.error('Registration error:', err);
+        alert(err.error || 'Registration failed');
+      },
     });
   }
 }

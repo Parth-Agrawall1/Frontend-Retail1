@@ -1,46 +1,52 @@
-<div class="container mt-4">
-  <h2>Stock List</h2>
+<div class="container-fluid mt-4">
+  <div class="table-wrapper">
+    <h2>Stock List</h2>
 
-  <table class="table table-bordered table-striped">
-    <thead class="table-dark">
-      <tr>
-        <th>ID</th>
-        <th>Item</th>
-        <th>Batch</th>
-        <th>Sale Price</th>
-        <th>Cost</th>
-        <th>MRP</th>
-        <th>Sale Price</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let stock of stocks">
-        <td>{{ stock.id }}</td>
-        <td>{{ stock.itemName }}</td>
-        <td>{{ stock.batch }}</td>
-        <td>
-          ₹ {{ (stock.salePrice != null ? stock.salePrice : stock.costPrice * 1.2) | number }}
-        </td>
-        <td>₹ {{ stock.costPrice | number }}</td>
-        <td>₹ {{ stock.mrp | number }}</td>
-        <td>
-          <input
-            type="number"
-            [(ngModel)]="stock.newSalePrice"
-            (ngModelChange)="stock.newSalePrice = $event"
-            placeholder="Enter Price"
-            class="form-control"
-          />
-        </td>
-        <td>
-          <button class="btn btn-success btn-sm" (click)="savePrice(stock)">Save</button>
-        </td>
-      </tr>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Item</th>
+          <th>Batch</th>
+          <th>Sale Price</th>
+          <th>Cost</th>
+          <th>MRP</th>
+          <th>Sale Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-      <tr *ngIf="stocks.length === 0">
-        <td colspan="7" class="text-center">No stock found.</td>
-      </tr>
-    </tbody>
-  </table>
+      <tbody>
+        <tr *ngFor="let stock of stocks">
+          <td>{{ stock.id }}</td>
+          <td>{{ stock.itemName }}</td>
+          <td>{{ stock.batch }}</td>
+
+          <td>
+            ₹ {{ (stock.salePrice != null ? stock.salePrice : stock.costPrice * 1.2) | number }}
+          </td>
+
+          <td>₹ {{ stock.costPrice | number }}</td>
+          <td>₹ {{ stock.mrp | number }}</td>
+
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="stock.newSalePrice"
+              placeholder="Enter Price"
+              class="form-control"
+            />
+          </td>
+
+          <td>
+            <button class="btn btn-success btn-sm" (click)="savePrice(stock)">Save</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="stocks.length === 0">
+          <td colspan="8" class="text-center">No stock found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

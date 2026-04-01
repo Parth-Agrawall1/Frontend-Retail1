@@ -1,202 +1,123 @@
-/* Container and Main Heading */
-.container.mt-4 {
-  margin-top: 2.5rem !important;
+/* ===== Layout ===== */
+
+.container-fluid {
+  padding: 24px 40px;
 }
 
-.container h3 {
+.report-wrapper {
+  background: #ffffff;
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+}
+
+/* ===== Title ===== */
+
+h3 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #000;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
 }
 
-/* Report Buttons - Fixed with Bootstrap horizontal list */
-.list-group {
+/* ===== Buttons ===== */
+
+.report-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  border-radius: 50px;
-  background-color: #f3f4f6;
-  padding: 6px;
-  margin-bottom: 1.5rem;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.list-group-item {
-  border-radius: 50px !important;
-  border: none !important;
-  padding: 8px 20px;
-  font-size: 0.95rem;
+.report-buttons button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 999px;
+  border: none;
   font-weight: 500;
   cursor: pointer;
-  background-color: transparent;
-  color: #374151;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  flex: 1;
-  min-width: 180px;
+  background: #f3f4f6;
+}
+
+.report-buttons button:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* ===== Sections ===== */
+
+.section {
+  margin-top: 24px;
+}
+
+/* ===== Table Wrapper ===== */
+
+.table-wrapper,
+.batch-table-wrapper {
+  margin-top: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Table ===== */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
   text-align: center;
 }
 
-.list-group-item:hover,
-.list-group-item.active {
-  background-color: #3b82f6 !important;
-  color: white !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+.table thead.table-dark {
+  background: #2563eb;
 }
 
-/* Stock Summary Section */
+.table th {
+  padding: 14px 16px;
+  color: white;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* ===== Stock Section ===== */
+
 .stock-section {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  margin: 24px 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
 }
 
-.stock-section h5 {
-  margin-bottom: 20px;
-  color: #1f2937;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-/* Stock Item Cards - Enhanced hover lift effect */
 .stock-item {
-  border: 2px solid #dbeafe !important;
-  background: #ffffff;
-  padding: 20px;
-  margin: 12px 0;
-  cursor: pointer;
+  padding: 16px;
+  margin: 10px 0;
   border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  background: #e5e7eb;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .stock-item:hover {
-  border-color: #3b82f6;
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.stock-item b {
-  color: #1e293b;
-  font-size: 1.1rem;
-}
+/* ===== Loading ===== */
 
-/* Fixed Table Container - Bootstrap responsive + shadows */
-.table-container {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
-  margin-top: 16px;
-  overflow: hidden;
-}
-
-.table-responsive {
-  border-radius: 8px;
-}
-
-/* Table Headers - Enhanced gradient */
-.table thead th {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
-  color: white !important;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 16px;
-  border: none !important;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-/* Table Body */
-.table tbody td {
-  padding: 16px !important;
-  font-size: 0.95rem;
-  color: #374151 !important;
-  border-color: #f3f4f6 !important;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.table tbody tr:hover {
-  background-color: #eff6ff !important;
-}
-
-/* Section Headings */
-.mt-4 h5,
-.batch-details h6 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 16px;
-}
-
-/* Empty State */
-.empty-state {
-  font-size: 1.1rem;
-  padding: 60px 40px;
+.loading {
   text-align: center;
-  color: #6b7280 !important;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 12px;
-  border: 2px dashed #d1d5db;
+  padding: 30px;
 }
 
-/* Debug Info */
-.debug-info {
-  background: #eff6ff;
-  border: 1px solid #3b82f6;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: #1e40af;
-  margin-top: 12px;
-}
+/* ===== Empty ===== */
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .list-group {
-    flex-direction: column;
-    border-radius: 12px;
-    padding: 8px;
-  }
-
-  .list-group-item {
-    min-width: auto;
-    background-color:#f3f4f6;
-    flex: none;
-  }
-
-  .stock-section {
-    padding: 16px;
-  }
-
-  .stock-item {
-    padding: 16px;
-  }
-
-  .table-container {
-    margin-top: 12px;
-  }
-
-  .table-responsive {
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-@media (max-width: 576px) {
-  .table {
-    font-size: 0.85rem;
-  }
-
-  .table thead th,
-  .table tbody td {
-    padding: 12px 8px !important;
-  }
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
 }

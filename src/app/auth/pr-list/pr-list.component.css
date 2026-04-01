@@ -1,7 +1,6 @@
-
 .pr-wrapper {
   min-height: calc(100vh - 70px);
-  background: #f3f4f6;                  /* light grey page bg */
+  background: #f3f4f6;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -69,6 +68,7 @@
 .pr-table {
   width: 100%;
   border-collapse: collapse;
+  text-align: center;
 }
 
 /* blue strip header */
@@ -137,10 +137,22 @@
 }
 
 /* match screenshot colors via your getBadgeClass */
-.bg-success { background-color: #d1fae5; color: #15803d; } /* Approved */
-.bg-info    { background-color: #dbeafe; color: #1d4ed8; } /* Paid */
-.bg-danger  { background-color: #fee2e2; color: #b91c1c; } /* Rejected */
-.bg-secondary { background-color: #e5e7eb; color: #374151; } /* Draft, etc. */
+.bg-success {
+  background-color: #d1fae5;
+  color: #15803d;
+} /* Approved */
+.bg-info {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+} /* Paid */
+.bg-danger {
+  background-color: #fee2e2;
+  color: #b91c1c;
+} /* Rejected */
+.bg-secondary {
+  background-color: #e5e7eb;
+  color: #374151;
+} /* Draft, etc. */
 
 /* === ACTION BUTTONS (Mark Paid etc.) === */
 
