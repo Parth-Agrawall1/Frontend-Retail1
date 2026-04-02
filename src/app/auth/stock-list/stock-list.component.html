@@ -1,6 +1,19 @@
 <div class="container-fluid mt-4">
   <div class="table-wrapper">
-    <h2>Stock List</h2>
+    <div style="justify-content: space-between; display: flex">
+      <h2>Stock List</h2>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Item Name"
+            [(ngModel)]="searchText"
+            (input)="onSearchChange()"
+          />
+        </div>
+      </div>
+    </div>
 
     <table class="table">
       <thead class="table-dark">
@@ -17,7 +30,7 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let stock of stocks">
+        <tr *ngFor="let stock of filteredStocks">
           <td>{{ stock.id }}</td>
           <td>{{ stock.itemName }}</td>
           <td>{{ stock.batch }}</td>
@@ -43,7 +56,7 @@
           </td>
         </tr>
 
-        <tr *ngIf="stocks.length === 0">
+        <tr *ngIf="filteredStocks.length === 0">
           <td colspan="8" class="text-center">No stock found.</td>
         </tr>
       </tbody>

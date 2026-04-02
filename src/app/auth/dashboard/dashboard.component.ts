@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DashboardService } from '../../services/dashboard.service';
@@ -21,7 +21,10 @@ export class DashboardComponent implements OnInit {
   dashboard!: DashboardData;
   loading = true;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.loadDashboard();
@@ -32,9 +35,11 @@ export class DashboardComponent implements OnInit {
       next: (data) => {
         this.dashboard = data;
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: () => {
         this.loading = false;
+        this.cdr.detectChanges();
       },
     });
   }

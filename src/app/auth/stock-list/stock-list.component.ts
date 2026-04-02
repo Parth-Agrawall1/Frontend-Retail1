@@ -12,6 +12,8 @@ import { StockService } from '../../services/Stock.Service ';
 })
 export class StockListComponent implements OnInit {
   stocks: any[] = [];
+  searchText: string = '';
+  filteredStocks: any[] = [];
 
   constructor(
     private stockService: StockService,
@@ -27,6 +29,7 @@ export class StockListComponent implements OnInit {
     this.stockService.getStock().subscribe({
       next: (res: any[]) => {
         this.stocks = res;
+        this.filteredStocks = [...this.stocks];
         this.cd.detectChanges();
       },
       error: (err) => console.error('Stock load failed', err),
@@ -47,5 +50,16 @@ export class StockListComponent implements OnInit {
       },
       error: (err) => alert(err?.error ?? 'Update failed'),
     });
+  }
+
+  onSearchChange(): void {
+    const search = this.searchText.toLowerCase();
+
+    if (!search) {
+      this.filteredStocks = [...this.stocks];
+      return;
+    }
+
+    this.filteredStocks = this.stocks.filter((x) => x.itemName.toLowerCase().includes(search));
   }
 }

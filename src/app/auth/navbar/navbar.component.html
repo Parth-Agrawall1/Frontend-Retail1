@@ -1,47 +1,26 @@
 <nav class="navbar">
-  <div>
-    <ul style="display: flex">
-      <a class="navbar-brand" routerLink="/">RetailApp</a>
-      <!-- Not logged in -->
-      <ng-container *ngIf="!isLoggedIn">
-        <div class="nav-item"><button class="nav-link" routerLink="/login">Login</button></div>
-        <div class="nav-item"><button class="nav-link" routerLink="/signup">Signup</button></div>
-      </ng-container>
+  <div class="nav-left">
+    <a class="navbar-brand" routerLink="/">RetailApp</a>
+  </div>
 
-      <!-- logged in -->
+  <div class="nav-right" *ngIf="!isLoggedIn">
+    <button class="nav-link login-btn" routerLink="/login">Login</button>
+    <button class="nav-link signup-btn" routerLink="/signup">Signup</button>
+  </div>
 
-      <ng-container *ngIf="isLoggedIn">
-        <div class="nav-item">
-          <a class="nav-link" routerLink="/PurchaseRequest">Purchase Requests</a>
-        </div>
-        <!-- SELLER ONLY -->
-        <div class="nav-item" *ngIf="userRole === 'Seller'">
-          <a class="nav-link" routerLink="/pr-create">Create PR</a>
-        </div>
+  <div class="nav-right" *ngIf="isLoggedIn">
+    <a class="nav-link" routerLink="/PurchaseRequest">Purchase Requests</a>
 
-        <!-- ADMIN ONLY -->
-        <div class="nav-item" *ngIf="userRole === 'Admin'">
-          <a class="nav-link" routerLink="/admin">Admin Dashboard</a>
-        </div>
+    <a class="nav-link" routerLink="/pr-create" *ngIf="userRole === 'Seller'">Create PR</a>
 
-        <!-- MANAGER ONLY -->
-        <div class="nav-item" *ngIf="userRole === 'Manager'">
-          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
-        </div>
+    <a class="nav-link" routerLink="/admin" *ngIf="userRole === 'Admin'">Admin Dashboard</a>
 
-        <div class="nav-item" *ngIf="userRole === 'Manager'">
-          <a class="nav-link" routerLink="/stock">Stock</a>
-        </div>
+    <a class="nav-link" routerLink="/dashboard" *ngIf="userRole === 'Manager'">Dashboard</a>
 
-        <!-- navbar.component.html -->
-        <div class="nav-item" *ngIf="userRole === 'Manager'">
-          <a class="nav-link" routerLink="/reports"> <i class="bi bi-bar-chart"></i> Reports </a>
-        </div>
+    <a class="nav-link" routerLink="/stock" *ngIf="userRole === 'Manager'">Stock</a>
 
-        <div class="nav-item">
-          <button class="nav-link logout-btn" (click)="logout()">Logout</button>
-        </div>
-      </ng-container>
-    </ul>
+    <a class="nav-link" routerLink="/reports" *ngIf="userRole === 'Manager'"> Reports </a>
+
+    <button class="nav-link logout-btn" (click)="logout()">Logout</button>
   </div>
 </nav>

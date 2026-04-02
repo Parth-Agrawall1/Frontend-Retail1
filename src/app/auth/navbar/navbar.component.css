@@ -1,35 +1,52 @@
-/* Navbar container */
 .navbar {
-  padding: 10px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px;
+  border-bottom: 2px solid #000000;
+  background: #000;
 }
 
-/* Brand style */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
 .navbar-brand {
-  font-size: 24px;
-  font-weight: 700;
-  color: #00070e;
-  transition: 0.3s;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
-.navbar-brand:hover {
-  color: #585857;
-}
-
-/* Nav-item style */
-.nav-item {
-  margin: 0 10px;
-}
-
-/* Nav links style */
 .nav-link {
-  color: #080808;
-  margin-right: 15px;
-  margin-left: 15px;
+  color: rgb(255, 255, 255);
   font-weight: 500;
-  transition: 0.3s;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+.login-btn{
+  background: #4ab928;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.signup-btn{
+  background: #007bff;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
-.nav-link:hover {
-  color: #5f5f5d;
+.logout-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  background: #c22929;
 }

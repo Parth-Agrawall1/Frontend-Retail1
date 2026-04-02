@@ -47,9 +47,9 @@ input {
 }
 
 .btn-login {
-  width: 100%;
+  width: 105%;
   padding: 12px;
-  background: #007bff;
+  background: #4ab928;
   color: white;
   border: none;
   border-radius: 6px;
@@ -58,7 +58,7 @@ input {
 }
 
 .btn-login:hover {
-  background: #0056cc;
+  background: #39911f;
 }
 
 .error-message {

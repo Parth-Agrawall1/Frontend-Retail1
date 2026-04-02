@@ -34,8 +34,6 @@ small {
   color: red;
 }
 .login-link {
-  text-decoration: none;
-}
-.login-link a:hover {
-  text-decoration: underline;
+  text-align: center;
+  margin-top: 15px;
 }

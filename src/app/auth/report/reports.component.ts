@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReportsService } from '../../services/reports.service';
 import { forkJoin } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 interface StockSummary {
   itemName: string;
@@ -41,7 +42,7 @@ interface PrReport {
 @Component({
   selector: 'app-reports',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css'],
 })
@@ -50,7 +51,8 @@ export class ReportsComponent {
   stockSummary: StockSummary[] = [];
   stockBatches: StockBatch[] = [];
   allBatches: StockBatch[] = [];
-
+  searchText: string = '';
+  filteredStockSummary: StockSummary[] = [];
   loadingPR = false;
   loadingStock = false;
 
@@ -89,6 +91,7 @@ export class ReportsComponent {
     }).subscribe({
       next: ({ summary, batches }) => {
         this.stockSummary = summary ?? [];
+        this.filteredStockSummary = [...this.stockSummary];
         this.allBatches = batches ?? [];
         this.loadingStock = false;
         this.cdr.detectChanges();
@@ -128,6 +131,25 @@ export class ReportsComponent {
     this.stockSummary = [];
     this.stockBatches = [];
     this.allBatches = [];
+    this.filteredStockSummary = [];
     this.loadingStock = false;
+  }
+
+  onSearchChange(): void {
+    const search = this.searchText.toLowerCase();
+
+    // Reset open batch when searching
+    this.selectedKey = null;
+    this.stockBatches = [];
+
+    if (!search) {
+      this.filteredStockSummary = [...this.stockSummary];
+      return;
+    }
+
+    this.filteredStockSummary = this.stockSummary.filter(
+      (x) =>
+        x.itemName.toLowerCase().includes(search) || x.hsnNumber.toLowerCase().includes(search),
+    );
   }
 }

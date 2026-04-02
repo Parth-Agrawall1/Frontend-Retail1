@@ -53,9 +53,23 @@
       </div>
 
       <div *ngIf="!loadingStock && stockSummary.length" class="stock-section">
-        <h5>Stock Summary ({{ stockSummary.length }} ITEMS)</h5>
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <h5>Stock Summary ({{ stockSummary.length }} ITEMS)</h5>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                style="border-radius: 10px; padding: 8px 10px"
+                placeholder="Item Name or HSN"
+                [(ngModel)]="searchText"
+                (input)="onSearchChange()"
+              />
+            </div>
+          </div>
+        </div>
 
-        <div *ngFor="let s of stockSummary; let i = index">
+        <div *ngFor="let s of filteredStockSummary; let i = index">
           <!-- STOCK ITEM -->
           <div class="stock-item" (click)="toggleBatchDetails(s)">
             {{ i + 1 }}. <b>{{ s.itemName }}</b> | HSN: {{ s.hsnNumber }} |
@@ -100,6 +114,10 @@
       *ngIf="!loadingPR && !loadingStock && !prReport.length && !stockSummary.length"
     >
       <h5>Select a report to view data</h5>
+    </div>
+
+    <div *ngIf="!loadingStock && stockSummary.length && filteredStockSummary.length === 0">
+      <h5 class="text-search">No stock found.</h5>
     </div>
   </div>
 </div>
