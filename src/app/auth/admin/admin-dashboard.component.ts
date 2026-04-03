@@ -27,13 +27,6 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  loadUsers() {
-    this.adminService.getUsers().subscribe((res) => {
-      this.users = res;
-      this.cdr.detectChanges();
-    });
-  }
-
   openRoleModal(user: any) {
     this.selectedUser = user;
     this.newRole = user.role;

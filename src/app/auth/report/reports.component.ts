@@ -51,11 +51,10 @@ export class ReportsComponent {
   stockSummary: StockSummary[] = [];
   stockBatches: StockBatch[] = [];
   allBatches: StockBatch[] = [];
-  searchText: string = '';
   filteredStockSummary: StockSummary[] = [];
+  searchText: string = '';
   loadingPR = false;
   loadingStock = false;
-
   selectedKey: string | null = null;
 
   constructor(
