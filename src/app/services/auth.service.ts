@@ -5,7 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private tokenKey = 'token';
-   private api = 'http://localhost:5195/api/PurchaseRequest';
+  private api = 'http://localhost:5195/api/PurchaseRequest';
   constructor(private http: HttpClient) {}
 
   register(data: any) {

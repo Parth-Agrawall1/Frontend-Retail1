@@ -9,10 +9,9 @@ export interface DashboardData {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DashboardService {
-
   private baseUrl = 'http://localhost:5195/api/dashboard';
 
   constructor(private http: HttpClient) {}

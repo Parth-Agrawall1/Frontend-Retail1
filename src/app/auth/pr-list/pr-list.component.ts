@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PurchaseRequestService } from '../../services/purchase-request.service';
 import { AuthService } from '../../services/auth.service';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-pr-list',

@@ -26,7 +26,6 @@ export class AdminGuard implements CanActivate {
 
       this.router.navigate(['/PurchaseRequest']);
       return false;
-
     } catch (err) {
       this.router.navigate(['/login']);
       return false;
