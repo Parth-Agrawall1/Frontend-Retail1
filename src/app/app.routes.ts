@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { PrListComponent } from './auth/pr-list/pr-list.component';
-import { PrCreateComponent } from './auth/pr-form/pr-create.component';
+import { PrCreateComponent } from './auth/pr-create/pr-create.component';
 import { AdminDashboardComponent } from './auth/admin/admin-dashboard.component';
 import { StockListComponent } from './auth/stock-list/stock-list.component';
 import { AdminGuard } from './guard/admin';

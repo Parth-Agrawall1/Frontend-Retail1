@@ -9,7 +9,7 @@ import { PurchaseRequestService } from '../../services/purchase-request.service'
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './pr-create.component.html',
-  styleUrl: 'pr-create.component.css',
+  styleUrl: './pr-create.component.css',
 })
 export class PrCreateComponent {
   pr = {
